@@ -44,7 +44,8 @@ body * {
 }
 
 #container {
-  width: 360px;
+  width: 100%;
+  max-width: 540px;
   /*margin: top right bottom left
     - se preencher só um valor ex: margin: auto, o valor vale pras 4 propriedades
     - se preencher 2 valores ex: margin: 0px 10px, o primeiro valor pra top e bottom e o segundo valor vale pra right e left
@@ -76,12 +77,12 @@ body * {
 }
 
 /*switch*/
-#switch{
+#switch {
   width: 64px;
   position: relative;
   margin: 4px auto;
 }
-#switch button{
+#switch button {
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -93,7 +94,7 @@ body * {
   top: 50%;
   transform: translateY(-50%);
 }
-.light #switch button{
+.light #switch button {
   right: 0;
   left: initial;
 }
@@ -103,7 +104,7 @@ body * {
   z-index: 0;
   background: rgba(255, 255, 255, 0.2);
 }*/
-#switch span{
+#switch span {
   display: block;
   width: 64px;
   height: 24px;
