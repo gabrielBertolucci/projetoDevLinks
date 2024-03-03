@@ -1,0 +1,168 @@
+* {
+  /* os estilos que estou declarando aqui vão valer pra todos os elementos do HTML, * é o seletor global*/
+  margin: 0; /*por padrao o navegador ja aplica umas margens entre os elementos*/
+  padding: 0; /*padding eh o preenchimento interno*/
+  box-sizing: border-box; /*aqui estou declarando que as medidas das caixas dos elementos serão medidas a partir da borda*/
+}
+:root {
+  --text-color: white;
+  --bg-url: url(./assets/assets/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --highlight-border: none;
+  --button-image-url: url(./assets/assets/moon-stars.svg);
+}
+.light {
+  --text-color: black;
+  --bg-url: url(./assets/assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(255, 255, 255, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --highlight-border: solid 0.1px black;
+  --button-image-url: url(./assets/assets/sun.svg);
+}
+body {
+  /*
+  background-image: url(./assets/assets/bg-mobile.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  */
+  /*Vou colocar toda as propriedades declarados acima em uma única propr. Essa nova propriedade se chama Short Hand ou Atalho*/
+
+  /*background: color image repeat position/size */
+  background: var(--bg-url) no-repeat top center/cover;
+}
+/* body * -> o * é o seletor universal, indica que vale pra tudo dentro do body*/
+body * {
+  /*declarando a fonte do body*/
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+}
+
+#container {
+  width: 360px;
+  /*margin: top right bottom left
+    - se preencher só um valor ex: margin: auto, o valor vale pras 4 propriedades
+    - se preencher 2 valores ex: margin: 0px 10px, o primeiro valor pra top e bottom e o segundo valor vale pra right e left
+    - se preencher 3 valores ex: margin: 0px 10px 5px, o primeiro vale pro top, o segundo pras laterais e o terceiro pro bottom*/
+  margin: 56px auto 0px;
+  padding: 0 24px;
+}
+/*profile*/
+#profile img {
+  width: 112px;
+  /* pra centralizar a img n funciona usar margin: auto pq img possui display inline. margin: auto so funciona para display block
+  
+  Uma saida pra centralizar a img eh forçar o display dela pra block e usar o margin: auto
+  
+  Outra saida eh declarar que o conteúdo do div pai (#profile) fique centralizado*/
+}
+
+#profile {
+  text-align: center;
+  /*OBS: o text-align so funciona pra alinhar display inline !!*/
+  padding: 24px;
+}
+
+#profile p {
+  font-weight: 500;
+  /*o font-weihgt define "o quao negrito sera a fonte*/
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+/*switch*/
+#switch{
+  width: 64px;
+  position: relative;
+  margin: 4px auto;
+}
+#switch button{
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 0;
+  background: white var(--button-image-url) no-repeat center;
+  position: absolute; /*essa posição vai ser absoluta em relacao ao espaço do switch no geral, pcausa do position: relative; declarado no #switch*/
+  z-index: 1;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.light #switch button{
+  right: 0;
+  left: initial;
+}
+/*
+#switch button:hover{
+  position: absolute;
+  z-index: 0;
+  background: rgba(255, 255, 255, 0.2);
+}*/
+#switch span{
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 9999px;
+  backdrop-filter: blur(4px);
+}
+/* links - lista*/
+ul {
+  list-style: none; /*aqui eu estou removendo os pontionhos dos ites da lista*/
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0;
+}
+
+ul li a {
+  display: flex; /*display flex meio que ocupa todo o espaço disponivel p esse elemento e distribui os valoers ao longo desse espaço. Como aqui dentro de cada <a> só possui 1 valor, não ta acontecendo essa distribuição*/
+  justify-content: center;
+  align-items: center;
+  padding: 16px 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  text-decoration: none; /*removendo o underline dos textoss*/
+  font-weight: 500;
+  transition: background 0.3s; /*aqui estou declarando uma transição de 0.5s para o efeito do hover*/
+}
+
+/* pseudo-selector -> aq vamos declarar como estes elementos vão se portar quando a gente passar ou descansar o mouse sobre eles*/
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: solid 1.5px var(--text-color);
+}
+
+/* social links */
+#social-links {
+  display: flex;
+  padding: 24px 0;
+  font-size: 24px;
+  justify-content: center;
+}
+#social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  transition: background 0.3s;
+  border-radius: 50%;
+}
+#social-links a:hover {
+  background: var(--highlight-color);
+  border: var(--highlight-border);
+  padding: 16px;
+}
+footer {
+  padding: 24px 0;
+  text-align: center;
+  font-size: 14px;
+}
