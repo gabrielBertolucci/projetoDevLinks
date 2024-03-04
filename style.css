@@ -94,17 +94,15 @@ body * {
   left: 0;
   top: 50%;
   transform: translateY(-50%);
+  animation: slide-back 0.2s;
 }
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-in 0.2s forwards; /*o forwards indica que ao fim da animação eh pra manter as propriedades do fim da animação e não voltar pro estado inicial*/
 }
-/*
-#switch button:hover{
-  position: absolute;
-  z-index: 0;
-  background: rgba(255, 255, 255, 0.2);
-}*/
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
+}
 #switch span {
   display: block;
   width: 64px;
@@ -177,5 +175,23 @@ footer {
 
   .light {
     --bg-url: url(/.assets/bg-desktop.jpg);
+  }
+}
+
+/* animations */
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
   }
 }
